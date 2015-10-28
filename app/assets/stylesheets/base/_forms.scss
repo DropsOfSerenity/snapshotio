@@ -88,3 +88,15 @@ select {
   max-width: 100%;
   width: auto;
 }
+
+.field_with_errors input {
+  border: $form-error-border;
+  margin-bottom: 0;
+}
+
+.field_with_errors .error {
+  color: $form-error-text-color;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 0;
+}
