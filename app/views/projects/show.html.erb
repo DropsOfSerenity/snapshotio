@@ -7,3 +7,11 @@
 <%= link_to "Edit Project", edit_project_path(@project) %>
 <%= link_to "Delete Project", project_path(@project), method: :delete,
     data: { confirm: "Are you sure you want to delete this project?" }%>
+
+<section class="project--shots">
+  <h2>Project Shots</h2>
+
+  <ul class="actions">
+    <li><%= link_to "New Shot", new_project_shot_path(@project) %></li>
+  </ul>
+</section>
