@@ -24,6 +24,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "paperclip"
+gem "devise"
 
 group :development do
   gem "quiet_assets"

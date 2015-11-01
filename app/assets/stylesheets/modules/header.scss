@@ -1,0 +1,138 @@
+$header-background: #E76B6B;
+
+body {
+  margin-top: 50px;
+  @include media($large-screen) {
+    margin-top: 80px;
+  }
+}
+
+/* HEADER STYLING */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background: $header-background;
+  text-align: center;
+  box-shadow: 0 2px 0 rgba(#000, .1);
+  z-index: 9999;
+
+  @include media($large-screen) {
+    height: 80px;
+  }
+
+  #logo {
+    padding-top: 5px;
+    @include transform(scale(.8));
+
+    @include media($large-screen) {
+      padding-top: 20px;
+      left: 1em;
+      @include transform(scale(1));
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+  }
+
+  #hamburger-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+
+    a {
+      display: inline-block;
+      overflow: hidden;
+      width: 60px;
+      height: 100%;
+      background: darken($header-background, 10%) image-url('hamburger.svg') no-repeat center center;
+      fill: white;
+    }
+
+    @include media ($large-screen) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+/* SIDENAV STYLING */
+#mobile-nav {
+  background: white;
+  @include transition( all 0.5s ease );
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 0 rgba(#000, .1);
+
+  &.open {
+    max-height: 100em;
+  }
+
+  ul {
+    list-style: none;
+    text-align: center;
+    background: $header-background;
+    a {
+      font-weight: 300;
+      @include transition(all 0.3s ease);
+      color: white;
+      border-bottom: 1px solid darken($header-background, 5%);
+      width: 100%;
+      display: block;
+      height: 50px;
+      line-height: 50px;
+    }
+    a:hover {
+      background: darken($header-background, 5%);
+    }
+  }
+
+  /* on large screens */
+  @include media ($large-screen) {
+    @include transition(none);
+    visibility: visible;
+    margin: 0;
+    max-height: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    left: auto;
+    right: 8em;
+    top: 0;
+    background: transparent;
+    box-shadow: none;
+    line-height: 80px;
+    z-index: 9999;
+
+    li {
+      &:first-of-type {
+        border-left: none;
+      }
+
+      display: inline-block;
+      height: 100%;
+    }
+
+    ul {
+      background: transparent;
+    }
+
+    ul a {
+      display: inline-block;
+      font-weight: 400;
+      height: auto;
+      line-height: 80px;
+      padding-left: 1em;
+      padding-right: 1em;
+      border: none;
+      &:hover {
+        background: darken($header-background, 5%);
+      }
+    }
+  }
+}
