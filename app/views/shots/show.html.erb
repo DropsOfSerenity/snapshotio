@@ -2,3 +2,5 @@
 
 <h2><%= @shot.name %></h2>
 <%= image_tag @shot.image.url %>
+
+<%= link_to "Delete Shot", project_shot_path(@project, @shot), method: :delete %>

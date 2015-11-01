@@ -26,6 +26,13 @@ class ShotsController < ApplicationController
     @shots = @project.shots
   end
 
+  def destroy
+    @project = find_project
+    @shot = @project.shots.find(params[:id])
+    @shot.destroy
+    redirect_to @project, notice: "Shot deleted."
+  end
+
   private
 
   def find_project

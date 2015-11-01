@@ -1,13 +1,16 @@
 <h1><%= @project.name %> Shots</h1>
-<ul>
-<% @project.shots.each do |shot| %>
-  <li>
-    <%= link_to [@project, shot] do %>
-      <figure>
-        <%= image_tag shot.image.url, width: 200 %>
-        <figcaption><%= shot.name %></figcaption>
-      </figure>
-    <% end %>
-  </li>
-<% end %>
-</ul>
+
+<div class="cards">
+  <% @project.shots.each do |shot| %>
+    <div class="card">
+      <%= link_to [@project, shot] do %>
+        <div class="card-image">
+          <%= image_tag shot.image.url %>
+        </div>
+        <div class="card-header">
+          <%= shot.name %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
