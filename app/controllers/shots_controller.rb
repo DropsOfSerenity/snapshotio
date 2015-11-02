@@ -7,6 +7,7 @@ class ShotsController < ApplicationController
   def create
     @project = find_project
     @shot = @project.shots.build(shot_params)
+    @shot.owner = current_user
 
     if @shot.save
       redirect_to [@project, @shot], notice: "Shot Created."

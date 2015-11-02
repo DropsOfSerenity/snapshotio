@@ -1,6 +1,7 @@
 <h1>Shot Details</h1>
 
 <h2><%= @shot.name %></h2>
+<p>Create <%= time_ago_in_words(@shot.created_at) %> ago by <%= @shot.owner.email %></p>
 <%= image_tag @shot.image.url %>
 
 <%= link_to "Delete Shot", project_shot_path(@project, @shot), method: :delete %>

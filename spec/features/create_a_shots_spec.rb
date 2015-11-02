@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature "Creating a shot", type: :feature do
+
+  include Warden::Test::Helpers
+
   before do
     project = create(:project, name: "XYZ Widgets")
-
+    @user = create(:user)
+    login_as(@user)
     visit project_path(project)
     click_link "New Shot"
   end
@@ -13,6 +17,7 @@ RSpec.feature "Creating a shot", type: :feature do
     attach_file "Image", Rails.root + 'spec/fixtures/shot.jpg'
     click_button "Create Shot"
     expect(page).to have_content("Shot Created.")
+    expect(page).to have_content("by #{@user.email}")
   end
 
   scenario "with invalid info" do
