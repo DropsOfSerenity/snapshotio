@@ -9,7 +9,7 @@ RSpec.feature 'A Project can be created', type: :feature do
   end
 
   scenario 'with valid attributes' do
-    visit '/projects/new'
+    visit '/admin/projects/new'
 
     fill_in 'Name', with: 'XYZ Widgets Inc'
     fill_in 'Description', with: 'Website redo for Futurecorp.'
@@ -19,7 +19,7 @@ RSpec.feature 'A Project can be created', type: :feature do
   end
 
   scenario 'with invalid attributes' do
-    visit '/projects/new'
+    visit '/admin/projects/new'
     fill_in 'Description', with: 'New Website'
     click_button 'Create Project'
 

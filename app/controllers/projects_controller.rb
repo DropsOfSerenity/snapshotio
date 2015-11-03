@@ -1,17 +1,4 @@
 class ProjectsController < ApplicationController
-  def new
-    @project = Project.new
-  end
-
-  def create
-    @project = Project.new(project_params)
-    if @project.save
-      redirect_to @project, notice: "Project Created"
-    else
-      flash.now[:alert] = "Project not Created"
-      render :new
-    end
-  end
 
   def show
     @project = find_project
@@ -33,13 +20,6 @@ class ProjectsController < ApplicationController
       flash.now[:alert] = "Project not Updated."
       render :edit
     end
-  end
-
-  def destroy
-    @project = find_project
-    @project.destroy
-
-    redirect_to projects_path, notice: "Project Deleted."
   end
 
   private
