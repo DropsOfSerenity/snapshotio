@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'User can only see certain links', type: :feature do
 
-  include Warden::Test::Helpers
-
   before do
     @project = create(:project)
   end

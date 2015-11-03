@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'Users can delete a project', type: :feature do
 
-  include Warden::Test::Helpers
-
   before do
     login_as(create(:user, :admin))
   end

@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "Creating a shot", type: :feature do
 
-  include Warden::Test::Helpers
-
   before do
     project = create(:project, name: "XYZ Widgets")
     @user = create(:user)

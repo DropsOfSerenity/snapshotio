@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'Admins can create users', type: :feature do
 
-  include Warden::Test::Helpers
-
   before do
     @admin = create(:user, :admin)
     login_as(@admin)

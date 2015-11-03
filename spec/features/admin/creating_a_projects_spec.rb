@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'A Project can be created', type: :feature do
 
-  include Warden::Test::Helpers
-
   before do
     login_as(create(:user, :admin))
   end
