@@ -15,14 +15,14 @@
 
 <hr>
 
-<section class="project--shots">
+<section>
   <h2>Shots</h2>
 
   <ul class="actions">
     <li><%= link_to "New Shot", new_project_shot_path(@project) %></li>
   </ul>
 
-  <ul class="shots">
+  <ul class="project--shots">
     <% @project.shots.each do |shot| %>
       <%= link_to [@project, shot] do %>
         <li>
