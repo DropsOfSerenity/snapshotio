@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   def index
-    @users = User.order(:email)
+    @users = User.unarchived.order(:email)
   end
 
   def new
@@ -39,6 +39,18 @@ class Admin::UsersController < Admin::ApplicationController
       flash.now[:alert] = 'User not Updated'
       render :edit
     end
+  end
+
+  def archive
+    @user = User.find(params[:id])
+    if @user == current_user
+      flash[:alert] = 'Cannot archive yourself'
+    else
+      @user.archive
+      flash[:notice] = 'User has been archived'
+    end
+
+    redirect_to admin_users_path
   end
 
   private
