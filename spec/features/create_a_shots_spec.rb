@@ -6,6 +6,7 @@ RSpec.feature "Creating a shot", type: :feature do
     project = create(:project, name: "XYZ Widgets")
     @user = create(:user)
     login_as(@user)
+    assign_role!(@user, :viewer, project)
     visit project_path(project)
     click_link "New Shot"
   end

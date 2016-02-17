@@ -25,6 +25,7 @@ gem "title"
 gem "uglifier"
 gem "paperclip"
 gem "devise"
+gem "pundit"
 
 group :development do
   gem "quiet_assets"

@@ -26,3 +26,5 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
+
+require "pundit/rspec"
